@@ -7,10 +7,14 @@ const createUser = async (data) => {
 };
 
 const getById = async (id) => {
-  const user = await User.findByPk(id);
+  const user = await User.findByPk(id, { attributes: { exclude: 'password' } });
 
   return user;
 };
+// {
+//   where: { id },
+//   attributes: { exclude: 'password' },
+// }
 
 const getAll = async () => {
   const users = await User.findAll({ attributes: { exclude: 'password' } });
