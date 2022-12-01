@@ -6,7 +6,7 @@ const { validateName } = require('../middlewares');
 const categoryRouter = express.Router();
 
 categoryRouter.get('/:id', categoriesController.getById);
-categoryRouter.get('/', categoriesController.getAll);
+categoryRouter.get('/', validateToken, categoriesController.getAll);
 categoryRouter.post('/',
 validateToken,
 validateName,
