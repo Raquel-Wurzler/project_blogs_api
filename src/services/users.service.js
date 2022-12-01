@@ -18,8 +18,14 @@ const getAll = async () => {
   return users;
 };
 
+const getByEmail = async (email) => {
+  const user = await User.findOne({ where: { email } });
+  return user;
+};
+
 module.exports = {
   createUser,
   getById,
   getAll,
+  getByEmail,
 };

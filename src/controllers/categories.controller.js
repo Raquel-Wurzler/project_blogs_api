@@ -9,7 +9,8 @@ const createCategory = async (req, res) => {
 
     return res.status(201).json(newCategory);
   } catch (error) {
-    res.status(500).json({ message: `${error500Message}: ${error.message}` });
+    console.info(error);
+    return res.status(500).json({ message: `${error500Message}: ${error.message}` });
   }
 };
 
@@ -22,7 +23,8 @@ const getById = async (req, res) => {
 
     return res.status(200).json(category);
   } catch (error) {
-    res.status(500).json({ message: `${error500Message}: ${error.message}` });
+    console.info(error);
+    return res.status(500).json({ message: `${error500Message}: ${error.message}` });
   }
 };
 
@@ -31,7 +33,8 @@ const getAll = async (_req, res) => {
     const categories = await CategoriesService.getAll();
     return res.status(200).json(categories);
   } catch (error) {
-    res.status(500).json({ message: `${error500Message}: ${error.message}` });
+    console.info(error);
+    return res.status(500).json({ message: `${error500Message}: ${error.message}` });
   }
 };
 
