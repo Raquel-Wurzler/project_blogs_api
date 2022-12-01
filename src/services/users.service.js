@@ -13,7 +13,7 @@ const getById = async (id) => {
 };
 
 const getAll = async () => {
-  const users = await User.findAll();
+  const users = await User.findAll({ attributes: { exclude: 'password' } });
 
   return users;
 };

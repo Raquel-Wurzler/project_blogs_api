@@ -1,5 +1,5 @@
 const UsersService = require('../services/users.service');
-const { createToken } = require('../auth/jwt');
+const { createToken } = require('../auth/validateJwt');
 
 const isBodyValid = (email, password) => email && password;
 

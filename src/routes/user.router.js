@@ -1,11 +1,12 @@
 const express = require('express');
 const usersController = require('../controllers/users.controller');
 const { validateDisplayName, validateEmail, validatePassword } = require('../middlewares');
+const { validateToken } = require('../auth/validateJwt');
 
 const userRouter = express.Router();
 
 userRouter.get('/:id', usersController.getById);
-userRouter.get('/', usersController.getAll);
+userRouter.get('/', validateToken, usersController.getAll);
 userRouter.post('/',
 validateDisplayName,
 validateEmail,
