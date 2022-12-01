@@ -1,4 +1,5 @@
 const UsersService = require('../services/users.service');
+const { createToken } = require('../auth/jwt');
 
 const error500Message = 'Ocorreu um erro';
 
@@ -6,8 +7,9 @@ const createUser = async (req, res) => {
   try {
     const data = req.body;
     const newUser = await UsersService.createUser(data);
-
-    return res.status(201).json(newUser);
+    const payload = { email: newUser.email, admin: false };
+    const token = createToken(payload);
+    return res.status(201).json({ token });
   } catch (error) {
     console.info(error);
     return res.status(500).json({ message: `${error500Message}: ${error.message}` });

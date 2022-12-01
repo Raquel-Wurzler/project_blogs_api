@@ -9,7 +9,7 @@ const loginRouter = require('./routes/login.router');
 const app = express();
 
 app.use(express.json());
-app.use('/users', userRouter);
+app.use('/user', userRouter);
 app.use('/categories', categoryRouter);
 app.use('/blog/post', blogPostRouter);
 app.use('/login', loginRouter);
