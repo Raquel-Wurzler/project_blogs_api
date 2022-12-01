@@ -11,10 +11,6 @@ const getById = async (id) => {
 
   return user;
 };
-// {
-//   where: { id },
-//   attributes: { exclude: 'password' },
-// }
 
 const getAll = async () => {
   const users = await User.findAll({ attributes: { exclude: 'password' } });
