@@ -7,7 +7,10 @@ const createBlogPost = async (data) => {
 };
 
 const getById = async (id) => {
-  const blogPost = await BlogPost.findByPk(id);
+  const blogPost = await BlogPost.findByPk(id, { include: [
+    { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    { model: Category, as: 'categories', through: { attributes: [] } },
+] });
 
   return blogPost;
 };

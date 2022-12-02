@@ -1,11 +1,14 @@
 const express = require('express');
 const blogPostController = require('../controllers/blogPosts.controller');
 const { validateToken } = require('../auth/validateJwt');
-const { validatePost } = require('../middlewares/validatePost');
+const { validatePost, validateIdPost } = require('../middlewares');
 
 const blogPostRouter = express.Router();
 
-blogPostRouter.get('/:id', blogPostController.getById);
+blogPostRouter.get('/:id',
+  validateToken,
+  validateIdPost,
+  blogPostController.getById);
 blogPostRouter.get('/', validateToken, blogPostController.getAll);
 blogPostRouter.post('/',
   validateToken,
