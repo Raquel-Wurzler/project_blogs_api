@@ -5,7 +5,8 @@ const error500Message = 'Ocorreu um erro';
 const createBlogPost = async (req, res) => {
   try {
     const data = req.body;
-    const newBlogPost = await BlogPostsService.createBlogPost(data);
+    const { email } = req.user;
+    const newBlogPost = await BlogPostsService.createBlogPost(data, email);
     return res.status(201).json(newBlogPost);
   } catch (error) {
     console.info(error);
@@ -16,6 +17,7 @@ const createBlogPost = async (req, res) => {
 const getById = async (req, res) => {
   try {
     const { id } = req.params;
+    console.log(req.user);
     const blogPost = await BlogPostsService.getById(id);
     return res.status(200).json(blogPost);
   } catch (error) {

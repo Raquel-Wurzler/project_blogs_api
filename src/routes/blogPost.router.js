@@ -1,7 +1,7 @@
 const express = require('express');
 const blogPostController = require('../controllers/blogPosts.controller');
 const { validateToken } = require('../auth/validateJwt');
-const { validatePost, validateIdPost } = require('../middlewares');
+const { validatePost, validateIdPost, validateIdCategory } = require('../middlewares');
 
 const blogPostRouter = express.Router();
 
@@ -13,6 +13,7 @@ blogPostRouter.get('/', validateToken, blogPostController.getAll);
 blogPostRouter.post('/',
   validateToken,
   validatePost,
+  validateIdCategory,
   blogPostController.createBlogPost);
 
 module.exports = blogPostRouter;

@@ -7,10 +7,10 @@ module.exports = {
       type: Sequelize.INTEGER,
       primaryKey: true,
       allowNull: false,
-      onUpdate: 'CASCADE',
+      // onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
       references: {
-        model: 'users',
+        model: 'blog_posts',
         key: 'id',
       },
     },
@@ -18,7 +18,7 @@ module.exports = {
       type: Sequelize.INTEGER,
       primaryKey: true,
       allowNull: false,
-      onUpdate: 'CASCADE',
+      // onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
       references: {
         model: 'categories',
