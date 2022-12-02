@@ -8,8 +8,8 @@ const categoryRouter = express.Router();
 categoryRouter.get('/:id', categoriesController.getById);
 categoryRouter.get('/', validateToken, categoriesController.getAll);
 categoryRouter.post('/',
-validateToken,
-validateName,
-categoriesController.createCategory);
+  validateToken,
+  validateName,
+  categoriesController.createCategory);
 
 module.exports = categoryRouter;

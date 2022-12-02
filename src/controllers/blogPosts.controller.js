@@ -6,7 +6,6 @@ const createBlogPost = async (req, res) => {
   try {
     const data = req.body;
     const newBlogPost = await BlogPostsService.createBlogPost(data);
-
     return res.status(201).json(newBlogPost);
   } catch (error) {
     console.info(error);

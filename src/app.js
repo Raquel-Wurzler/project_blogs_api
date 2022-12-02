@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use('/user', userRouter);
 app.use('/categories', categoryRouter);
-app.use('/blog/post', blogPostRouter);
+app.use('/post', blogPostRouter);
 app.use('/login', loginRouter);
 
 // ...
