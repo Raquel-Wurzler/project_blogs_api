@@ -48,9 +48,22 @@ const updateBlogPost = async (req, res) => {
   }
 };
 
+const deleteBlogPost = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await BlogPostsService.deleteBlogPost(id);
+
+    return res.status(204).json();
+  } catch (error) {
+    console.info(error);
+    return res.status(500).json({ message: `${error500Message}: ${error.message}` });
+  }
+};
+
 module.exports = {
   createBlogPost,
   getById,
   getAll,
   updateBlogPost,
+  deleteBlogPost,
 };

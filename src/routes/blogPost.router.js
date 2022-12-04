@@ -22,5 +22,10 @@ blogPostRouter.put('/:id',
   validateIdUser,
   validateUpPost,
   blogPostController.updateBlogPost);
+blogPostRouter.delete('/:id',
+  validateToken,
+  validateIdPost,
+  validateIdUser,
+  blogPostController.deleteBlogPost);
 
 module.exports = blogPostRouter;
