@@ -40,8 +40,20 @@ const getAll = async (_req, res) => {
   }
 };
 
+const deleteUser = async (req, res) => {
+  try {
+    const { email } = req.user;
+    await UsersService.deleteUser(email);
+    return res.status(204).json();
+  } catch (error) {
+    console.info(error);
+    return res.status(500).json({ message: `${error500Message}: ${error.message}` });
+  }
+};
+
 module.exports = {
   createUser,
   getById,
   getAll,
+  deleteUser,
 };
