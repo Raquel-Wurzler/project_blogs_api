@@ -11,21 +11,26 @@ blogPostRouter.get('/search',
   validateToken,
   validateSearch,
   blogPostController.searchBlogPost);
+
 blogPostRouter.get('/:id',
   validateToken,
   validateIdPost,
   blogPostController.getById);
+
 blogPostRouter.get('/', validateToken, blogPostController.getAll);
+
 blogPostRouter.post('/',
   validateToken,
   validatePost,
   validateIdCategory,
   blogPostController.createBlogPost);
+
 blogPostRouter.put('/:id',
   validateToken,
   validateIdUser,
   validateUpPost,
   blogPostController.updateBlogPost);
+  
 blogPostRouter.delete('/:id',
   validateToken,
   validateIdPost,
