@@ -60,10 +60,22 @@ const deleteBlogPost = async (req, res) => {
   }
 };
 
+const searchBlogPost = async (req, res) => {
+  try {
+    const { q } = req.query;
+    const postsByQuery = await BlogPostsService.searchBlogPost(q);
+    return res.status(200).json(postsByQuery);
+  } catch (error) {
+    console.info(error);
+    return res.status(500).json({ message: `${error500Message}: ${error.message}` });
+  }
+};
+
 module.exports = {
   createBlogPost,
   getById,
   getAll,
   updateBlogPost,
   deleteBlogPost,
+  searchBlogPost,
 };

@@ -7,6 +7,7 @@ const { validateIdPost } = require('./validateIdPost');
 const { validateIdCategory } = require('./validateIdCategory');
 const { validateIdUser } = require('./validateIdUser');
 const { validateUpPost } = require('./validateUpPost');
+const { validateSearch } = require('./validateSearch');
 
 module.exports = {
   validateDisplayName,
@@ -18,4 +19,5 @@ module.exports = {
   validateIdCategory,
   validateIdUser,
   validateUpPost,
+  validateSearch,
 };
