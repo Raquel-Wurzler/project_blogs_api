@@ -36,3 +36,26 @@ _"A Trybe é uma escola do futuro para qualquer pessoa que queira melhorar de vi
 
 **Back-end:** Node, Express, JavaScript, MySql, Sequelize
 
+```bash
+# Abra um terminal e copie este repositório com o comando
+git clone git@github.com:Raquel-Wurzler/project_blogs_api.git
+
+# Entre na pasta do projeto 
+cd project_blogs_api
+
+# Instale as dependências
+yarn install
+ou 
+npm install
+
+# Rode o servidor
+npm start
+
+# Configure o arquivo .env com suas informações
+conforme o arquivo .env-example
+
+# Rode a aplicação
+usando extensão Live Server no vs-code na porta que você especificar no arquivo .env
+
+```
+
